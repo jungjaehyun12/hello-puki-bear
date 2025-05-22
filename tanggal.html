@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #d0ff00;
+            color: #333;
+        }
+
+        h1 {
+            color: #ff0000;
+        }
+
+        p {
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #ff0073;
+            color: rgb(138, 254, 65);
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #000000;
+        }
+    </style>
+    <h1>TAISHIN HAHAHAHHAHAHAHAHAHAHHAHAHAHA</h1><img src="https://media1.tenor.com/m/uF_rGiH6F9sAAAAC/blushing.gif"
+        alt="GIF" width="300" height="200">
+    <form id="appointmentForm">
+        <label for="name">nama broo nama saha? :</label>
+        <input type="text" id="name" name="name" required><br><br>
+
+        <!-- ✅ Tambahkan ini -->
+        <label for="email">bagi email?</label>
+        <input type="email" id="email" name="email" required><br><br>
+
+        <label for="date">Tanggal brp nii bheuheuhe:</label>
+        <input type="date" id="date" name="date" required><br><br>
+
+        <label for="time">jam jam jam????:</label>
+        <input type="time" id="time" name="time" required><br><br>
+
+        <button type="submit">hehe teken ini klo uda</button>
+    </form>
+
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>
+        emailjs.init({ publicKey: '-UTFeJfBuwVr2ZgOa' });
+        document
+            .getElementById("appointmentForm")
+            .addEventListener("submit", function (e) {
+                e.preventDefault();
+                const name = document.getElementById("name").value;
+                const email = document.getElementById("email").value;
+                const date = document.getElementById("date").value;
+                const time = document.getElementById("time").value;
+
+                const templateParams = {
+                    name: name,
+                    email: email,
+                    date: date,
+                    time: time
+                };
+
+                emailjs.send("taishinimida", "template_7iok5qa", templateParams)
+                    .then(() => {
+                        alert("UDAHH!");
+                    })
+                    .catch((error) => {
+                        console.error("Error:", error);
+                        alert("FAILEDDD, ISI ULANG WOII :( " + error.text);
+                    });
+            });
+    </script>
+
+
+</body>
+
+</html>
